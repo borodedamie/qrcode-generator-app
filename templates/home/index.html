@@ -15,13 +15,10 @@
     <div class="container">
         <form action="{{ url_for('generate_qr_code') }}" method="POST">
             <input type="text" placeholder="link goes here" name="link" id="link">
-            <button type="submit">Submit</button>
+            <button type="submit" onclick="onClick()">Submit</button>
         </form>
-        <!-- <button id="generate-code" onclick="onClick()">Generate Code</button> -->
     </div>
-    <div class="qrcode">
-        <img src="" alt="" id="image">
-    </div>
+    <div class="qrcode"></div>
 
     <script src="{{ url_for('static', filename='js/main.js') }}"></script>
 </body>

@@ -15,7 +15,14 @@ def generate_qr_code():
         img = qrcode.make(link)
         img.save('static/upload/qr_code.png')
         
-        return send_from_directory('static/upload/', 'qr_code.png')
+        return render_template('code/code.html')
+    
+@app.route('/display-code')
+def display_code():
+    return render_template('code/code.html')
+        
+def return_image():
+    return send_from_directory('static/upload/', 'qr_code.png')
 
 if __name__ == '__main__':
     app.run(debug = True)

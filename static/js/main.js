@@ -1,17 +1,16 @@
+const responseHTML = document.querySelector('#qrcode')
+
 var oReq = new XMLHttpRequest();
 
 onClick = () => {
 
     oReq.addEventListener("load", requestListener);
-    oReq.open("GET", "/static/upload/qr_code.png");
-    oReq.responseType = "blob";
+    oReq.open("GET", "/display-code");
     oReq.send();
 }
 
-requestListener = () => {
-    var blob = oReq.response;
-    const url = URL.createObjectURL(blob)
-
-    console.log(blob)
+requestListener = (e) => {
+    e.preventDefault()
     
+    console.log( oReq.responseText )
 }
